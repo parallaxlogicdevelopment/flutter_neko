@@ -1,7 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.neko">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
    <application
        android:usesCleartextTraffic="true"
+       android:hardwareAccelerated="true"
         android:label="neko"
         android:icon="@mipmap/ic_launcher">
         <activity

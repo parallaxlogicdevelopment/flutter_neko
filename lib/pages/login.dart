@@ -8,7 +8,7 @@ import 'package:neko/pages/dashboard.dart';
 import 'package:http/http.dart' as http;
 import 'package:neko/responses/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_config/flutter_config.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -25,10 +25,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    if (FlutterConfig.get('APP_ENV') == 'local') {
-      _emailController.text = "ucb@gmail.com";
+
+      _emailController.text = "admin@admin.com";
       _passwordController.text = "123456";
-    }
+
     super.initState();
     _prefs.then((SharedPreferences prefs) {
       String token = prefs.getString('token');
@@ -42,9 +42,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void login() async {
+
+    print("login func called");
+
     setState(() {
       isHttpWorking = true;
     });
+
+
     var url = APIUrl().signIn();
 
     print(url);
